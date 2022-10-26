@@ -1,68 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>::: LogIn :::</title>
     <script type="module" src="js/index.js" defer></script>
     <script type="module" src="js/login.js" defer></script>
-</head>
-<body>
-<header>
-    <div id="nav-bar" class="flex bg-blue-100">
-
-    </div>
-</header>
-<div class="container p-8 mx-auto text-center">
-    <h1 class="text-3xl text-gray-700 underline"><span class="text-blue-600">Post😼</span> Request User signIn (logIn)
-        with
-        <span class="text-yellow-600">Validation 👿</span></h1>
-    <form
-            id="login-form"
-            class="flex flex-col gap-y-2 p-8 m-8 mx-auto w-96 text-left bg-gray-300 rounded-md border shadow">
-        <h2 class="mb-4 text-2xl font-semibold text-gray-700 underline">LogIn User 🧑</h2>
+  </head>
+  <body>
+    <header>
+      <div id="nav-bar" class="flex bg-blue-100"></div>
+    </header>
+    <div class="container p-8 mx-auto text-center">
+      <h1 class="text-3xl text-gray-700 underline">
+        <span class="text-blue-600">Post😼</span> Request User signIn (logIn)
+        with <span class="text-yellow-600">Validation 👿</span>
+      </h1>
+      <form
+        id="login-form"
+        class="flex flex-col gap-y-2 p-8 m-8 mx-auto w-96 text-left bg-gray-300 rounded-md border shadow"
+      >
+        <h2 class="mb-4 text-2xl font-semibold text-gray-700 underline">
+          LogIn User 🧑
+        </h2>
 
         <div class="flex flex-col gap-y-1">
-            <label for="email" class="text-gray-600">Email: (Required) </label>
-            <input
-                    id="email"
-                    class="p-2 rounded-md"
-                    name="email"
-                    type="text"
-                    placeholder="Enter email">
-            <span
-                    id="emailErrorNotValid"
-                    class="hidden text-sm text-red-500"
-            >
-                Email is not valid must be a valid stud.noroff.no or noroff.no email address
-            </span>
-            <span
-                    id="emailError"
-                    class="hidden text-sm text-red-500"
-            >
-                Email is required
-                </span>
+          <label for="email" class="text-gray-600">Email: (Required) </label>
+          <input
+            id="email"
+            class="p-2 rounded-md"
+            name="email"
+            type="text"
+            placeholder="Enter email"
+          />
+          <span id="emailErrorNotValid" class="hidden text-sm text-red-500">
+            Email is not valid must be a valid stud.noroff.no or noroff.no email
+            address
+          </span>
+          <span id="emailError" class="hidden text-sm text-red-500">
+            Email is required
+          </span>
         </div>
         <div class="flex flex-col gap-y-1">
-            <label for="password" class="text-gray-600">Password: (Required) </label>
-            <input
-                    id="password"
-                    class="p-2 rounded-md"
-                    name="password"
-                    type="password"
-                    placeholder="Enter password">
-            <span
-                    id="passwordError"
-                    class="hidden text-sm text-red-500"
-            >
-                Password is required and must be over 8 chars
-                </span>
+          <label for="password" class="text-gray-600"
+            >Password: (Required)
+          </label>
+          <input
+            id="password"
+            class="p-2 rounded-md"
+            name="password"
+            type="password"
+            placeholder="Enter password"
+          />
+          <span id="passwordError" class="hidden text-sm text-red-500">
+            Password is required and must be over 8 chars
+          </span>
         </div>
-        <button class="p-2 mt-4 text-white capitalize bg-blue-600 rounded-md border border-gray-600"
-                type="submit">
-            sign in
+        <button
+          class="p-2 mt-4 text-white capitalize bg-blue-600 rounded-md border border-gray-600"
+          type="submit"
+        >
+          sign in
         </button>
-    </form>
-    <p id="general-error-message" class="text-3xl text-yellow-500 capitalize"></p>
-</div>
-</body>
+      </form>
+      <p
+        id="general-error-message"
+        class="text-3xl text-yellow-500 capitalize"
+      ></p>
+    </div>
+  </body>
 </html>
