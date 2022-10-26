@@ -47,7 +47,6 @@ createPostForm.addEventListener("submit", function (event) {
     const accessToken = getToken();
     console.log("accessToken: ", accessToken);
     console.log("CREATE_POST_URL", CREATE_POST_URL);
-
     (async function createPost() {
       const response = await fetch(CREATE_POST_URL, {
         method: "POST",

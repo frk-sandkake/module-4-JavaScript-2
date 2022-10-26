@@ -8,7 +8,6 @@ const postsNotificationMessage = document.querySelector(".posts__notification");
 const accessToken = getToken();
 console.log("accessToken: ", accessToken);
 console.log("GET_POSTS_URL", GET_POSTS_URL);
-
 (async function getAllPosts() {
   const response = await fetch(GET_POSTS_URL, {
     method: "GET",
