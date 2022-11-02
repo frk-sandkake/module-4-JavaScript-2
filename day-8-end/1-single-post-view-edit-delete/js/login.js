@@ -59,12 +59,13 @@ if (logInForm) { // check if the logInForm is selected using the document.queryS
       const LOGIN_USER_URL_ENDPOINT = `${USER_LOGIN_URL}`; // the URL End point of the login user for the Noroff API
       logInUser(userData, LOGIN_USER_URL_ENDPOINT) // using the logInUser exported function to log in a user, Passing to this function the userData and the login user URL endpoint
         .then((logInUserData) => { // handle the response if the user is successfully logged in
+          console.log(logInUserData)
           // save Token in the browser Local Storage
           saveToken(logInUserData.accessToken);
           // save user in the browser Local Storage
           saveUser(logInUserData.userToSave);
           // redirect the user to the home page
-          location.href = "/index.html";
+          // location.href = "/index.html";
         }).catch((errMessage) => { // catch the error message from the Promise
         generalErrorMessage.innerHTML = errMessage; // show the error message on the DOM
       });

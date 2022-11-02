@@ -30,9 +30,10 @@ async function logInUser(userData, LOGIN_USER_URL_ENDPOINT) {
     return logInUserData; // return the login user data with token from the promise
   } else {
     // if an error happened then we are going to get an error message in the jsonResponse
-    const errMessage = `An error occurred: ${jsonResponse.message}`; // create an error message
+    console.log(jsonResponse);
+    const errMessage = `An error occurred: ${jsonResponse.errors[0].message}`; // create an error message
     console.log("POST REQUEST LOGIN Failed!!  💩"); // log a custom error message //TODO delete this console log
-    return errMessage; // return an error message
+    throw Error(errMessage); // return an error message
   }
 }
 
