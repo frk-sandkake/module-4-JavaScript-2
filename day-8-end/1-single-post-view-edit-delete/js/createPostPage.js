@@ -1,5 +1,6 @@
 import { getToken } from "./utils/storage";
 import { CREATE_POST_URL } from "./settings/api";
+import { createPost } from "./utils/createPost";
 
 const createPostForm = document.querySelector("#create-post-form");
 
@@ -15,7 +16,7 @@ console.log(postTitleError);
 console.log(postDescription);
 console.log(postDescriptionError);
 
-createPostForm.addEventListener("submit", function (event) {
+createPostForm.addEventListener("submit", function(event) {
   event.preventDefault();
   let isPostTitle = false;
   if (postTitle.value.trim().length > 0) {
@@ -41,37 +42,22 @@ createPostForm.addEventListener("submit", function (event) {
     console.log(postDescription.value);
     const postData = {
       title: postTitle.value,
-      body: postDescription.value,
+      body: postDescription.value
     };
     console.log("postData: ", postData);
     const accessToken = getToken();
     console.log("accessToken: ", accessToken);
     console.log("CREATE_POST_URL", CREATE_POST_URL);
 
-    (async function createPost() {
-      const response = await fetch(CREATE_POST_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify(postData),
+    createPost(accessToken, postData, CREATE_POST_URL)
+      .then((response) => {
+        console.log("my response: ", response);
+        createPostForm.reset();
+      })
+      .catch((err) => {
+        console.log(err);
+        createPostForm.reset();
       });
-      console.log("post creation response: ", response);
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        console.log("CREATE POST SUCCEEDED!!  🥳 🤗🤗");
-        location.href = "/index.html";
-      } else {
-        const err = await response.json();
-        const message = "Creating post failed";
-        throw new Error(message);
-      }
-      createPostForm.reset();
-    })().catch((err) => {
-      console.log(err);
-    });
   } else {
     console.log("Validation FAILED!! 💩");
   }

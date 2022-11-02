@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1667396048472" clover="3.2.0">
+  <project timestamp="1667396048472" name="All files">
+    <metrics statements="8" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1" elements="11" coveredelements="9" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1"/>
+    <file name="createPost.js" path="/Users/hesham/Documents/work/Noroff/year_one_two_assets/Front-End Development 2/Module 4 - JavaScript-2/day-8-end/1-single-post-view-edit-delete/js/utils/createPost.js">
+      <metrics statements="8" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="14" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>
