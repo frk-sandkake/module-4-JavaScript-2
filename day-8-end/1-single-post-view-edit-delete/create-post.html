@@ -1,64 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>::: Create Post :::</title>
-    <script type="module" src="js/index.js" defer></script>
-    <script type="module" src="js/createPost.js" defer></script>
+  <meta charset="UTF-8" />
+  <title>::: Create Post :::</title>
+  <script type="module" src="js/index.js" defer></script>
+  <script type="module" src="js/createPostPage.js" defer></script>
 </head>
 <body>
 <header>
-    <div id="nav-bar" class="flex text-sm  bg-blue-100">
-
-    </div>
+  <div id="nav-bar" class="flex text-sm bg-blue-100"></div>
 </header>
 <div class="container p-8 mx-auto text-center">
-    <h1 class="text-3xl text-gray-700 underline">
-        <span class="text-blue-600">Crate Post😼</span>
-        <span class="text-yellow-600">Validation 👿</span>
-    </h1>
-    <form
-            id="create-post-form"
-            class="flex flex-col gap-y-2 p-8 m-8 mx-auto w-96 text-left bg-gray-300 rounded-md border shadow">
-        <h2 class="mb-4 text-2xl font-semibold text-gray-700 underline">Create Post 🧑</h2>
+  <h1 class="text-3xl text-gray-700 underline">
+    <span class="text-blue-600">Crate Post😼</span>
+    <span class="text-yellow-600">Validation 👿</span>
+  </h1>
+  <form
+    id="create-post-form"
+    class="flex flex-col gap-y-2 p-8 m-8 mx-auto w-96 text-left bg-gray-300 rounded-md border shadow"
+  >
+    <h2 class="mb-4 text-2xl font-semibold text-gray-700 underline">
+      Create Post 🧑
+    </h2>
 
-        <div class="flex flex-col gap-y-1">
-            <label for="postTitle" class="text-gray-600">Post Title: (Required) </label>
-            <input
-                    id="postTitle"
-                    class="p-2 rounded-md"
-                    name="postTitle"
-                    type="text"
-                    placeholder="Enter post title">
-            <span
-                    id="postTitleError"
-                    class="hidden text-sm text-red-500"
-            >
-                Post Title is required
-            </span>
-        </div>
-        <div class="flex flex-col gap-y-1">
-            <label for="postDescription" class="text-gray-600">Description: (Required) </label>
-            <textarea
-                    rows="3"
-                    name="postDescription"
-                    id="postDescription"
-                    class="block w-full resize-none border-0 placeholder-gray-400 focus:ring-0 sm:text-sm p-2 rounded-md"
-                    placeholder="Write a description..."></textarea>
-            <span
-                    id="postDescriptionError"
-                    class="hidden text-sm text-red-500"
-            >
-                Post Description is required
-                </span>
-        </div>
-        <button class="justify-center capitalize inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                type="submit">
-            create
-        </button>
-    </form>
-    <p id="general-error-message" class="text-3xl text-yellow-500 capitalize"></p>
+    <div class="flex flex-col gap-y-1">
+      <label for="postTitle" class="text-gray-600"
+      >Post Title: (Required)
+      </label>
+      <input
+        id="postTitle"
+        class="p-2 rounded-md"
+        name="postTitle"
+        type="text"
+        placeholder="Enter post title"
+      />
+      <span id="postTitleError" class="hidden text-sm text-red-500">
+            Post Title is required
+          </span>
+    </div>
+    <div class="flex flex-col gap-y-1">
+      <label for="postDescription" class="text-gray-600"
+      >Description: (Required)
+      </label>
+      <textarea
+        rows="3"
+        name="postDescription"
+        id="postDescription"
+        class="block w-full resize-none border-0 placeholder-gray-400 focus:ring-0 sm:text-sm p-2 rounded-md"
+        placeholder="Write a description..."
+      ></textarea>
+      <span id="postDescriptionError" class="hidden text-sm text-red-500">
+            Post Description is required
+          </span>
+    </div>
+    <button
+      class="justify-center capitalize inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      type="submit"
+    >
+      create
+    </button>
+  </form>
+  <p
+    id="general-error-message"
+    class="text-3xl text-yellow-500 capitalize"
+  ></p>
 </div>
-
 </body>
 </html>
