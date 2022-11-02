@@ -1,6 +1,7 @@
 import { USER_LOGIN_URL } from "./settings/api";
 import { validateEmail } from "./utils/validation";
 import { saveUser, saveToken } from "./utils/storage";
+import { logInUser } from "./utils/logInUser";
 
 const logInForm = document.querySelector("#login-form");
 
@@ -13,16 +14,16 @@ const passwordError = document.querySelector("#passwordError");
 
 const generalErrorMessage = document.querySelector("#general-error-message");
 
-if (logInForm) {
-  logInForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+if (logInForm) { // check if the logInForm is selected using the document.querySelector
+  logInForm.addEventListener("submit", function(event) { // listen to the Submit Event on the form when the BTN is clicked
+    event.preventDefault(); // Prevent the page from refresh if the Submit BTN clicked
 
-    let isEmail = false;
-    if (email.value.trim().length > 0) {
-      emailError.classList.add("hidden");
-      isEmail = true;
+    let isEmail = false; // Boolean Variable to use it to check if the email input field has a value or not.
+    if (email.value.trim().length > 0) { // check if the email input value has value inside and NOT empty
+      emailError.classList.add("hidden"); // Hide the error message if the email input value has value inside
+      isEmail = true; // Now make that boolean variable to be True because now the email value is available
     } else {
-      emailError.classList.remove("hidden");
+      emailError.classList.remove("hidden"); // Show the Error message if the email input is empty and no value is there
     }
 
     let isValidEmail = false;
@@ -45,50 +46,27 @@ if (logInForm) {
       passwordError.classList.remove("hidden");
     }
 
-    let isFormValid = isEmail && isValidEmail && isPassword;
+    let isFormValid = isEmail && isValidEmail && isPassword; // check that the email input has value, email is valid and the password is available.
+    // it will return true if all inputs are correct and valid
 
-    if (isFormValid) {
-      console.log("Validation SUCCEEDED!!  🥳");
-      const userData = {
-        email: email.value,
-        password: password.value,
+    if (isFormValid) { // checks if the form inputs are valid
+      console.log("Validation SUCCEEDED!!  🥳"); // log if the form inputs are valid
+      const userData = { // create and prepare the inputs to send to the logInUser function to login the user.
+        email: email.value, // this is the value of the email input
+        password: password.value // this is the value of the password input
       };
 
-      const LOGIN_USER_URL_ENDPOINT = `${USER_LOGIN_URL}`;
-
-      (async function logInUser() {
-        const response = await fetch(LOGIN_USER_URL_ENDPOINT, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userData),
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-
-          console.log(data);
-          console.log(data.accessToken);
-          // save Token
-          saveToken(data.accessToken);
-          // save user
-          const userToSave = {
-            name: data.name,
-            email: data.email,
-          };
-          console.log(userToSave);
-          saveUser(userToSave);
-          console.log("POST REQUEST LOGIN SUCCEEDED!!  🥳 🤗🤗");
+      const LOGIN_USER_URL_ENDPOINT = `${USER_LOGIN_URL}`; // the URL End point of the login user for the Noroff API
+      logInUser(userData, LOGIN_USER_URL_ENDPOINT) // using the logInUser exported function to log in a user, Passing to this function the userData and the login user URL endpoint
+        .then((logInUserData) => { // handle the response if the user is successfully logged in
+          // save Token in the browser Local Storage
+          saveToken(logInUserData.accessToken);
+          // save user in the browser Local Storage
+          saveUser(logInUserData.userToSave);
+          // redirect the user to the home page
           location.href = "/index.html";
-        } else {
-          const err = await response.json();
-          const message = `An error occurred: ${err.message}`;
-          console.log("POST REQUEST LOGIN Failed!!  💩");
-          throw new Error(message);
-        }
-      })().catch((err) => {
-        generalErrorMessage.innerHTML = `Sorry !! ${err.message}`;
+        }).catch((errMessage) => { // catch the error message from the Promise
+        generalErrorMessage.innerHTML = errMessage; // show the error message on the DOM
       });
     } else {
       console.log("Validation FAILED!! 💩");
