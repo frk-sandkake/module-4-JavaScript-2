@@ -1,35 +1,22 @@
 {
-  "name": "form-submission",
+  "name": "crud-workflow-ca",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint --ext .js --ignore-path .gitignore .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preview": "vite preview"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.12",
-    "eslint": "^8.26.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "husky": "^8.0.1",
     "postcss": "^8.4.16",
-    "prettier": "2.7.1",
-    "pretty-quick": "^3.1.3",
     "tailwindcss": "^3.1.8",
     "vite": "^3.1.3"
   },
   "dependencies": {
     "moment": "^2.29.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }

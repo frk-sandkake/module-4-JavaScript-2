@@ -80,7 +80,7 @@ if (logInForm) {
           console.log(userToSave);
           saveUser(userToSave);
           console.log("POST REQUEST LOGIN SUCCEEDED!!  🥳 🤗🤗");
-          location.href = "/welcome.html";
+          location.href = "/index.html";
         } else {
           const err = await response.json();
           const message = `An error occurred: ${err.message}`;

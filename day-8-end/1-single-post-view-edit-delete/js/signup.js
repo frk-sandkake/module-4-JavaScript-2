@@ -108,7 +108,7 @@ contactForm.addEventListener("submit", function (event) {
 
         if (response.ok) {
           console.log("POST REQUEST SUCCEEDED!!  🥳 🤗🤗");
-          location.replace("/");
+          location.replace("/login.html");
         } else {
           generalErrorMessage.innerHTML = `Sorry !! ${data.message}`;
         }
