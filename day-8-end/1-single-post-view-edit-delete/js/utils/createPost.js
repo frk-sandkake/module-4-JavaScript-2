@@ -18,7 +18,7 @@ async function createPost(token, postData, apiPostUrl) { //  parameters are toke
     console.log("CREATE POST SUCCEEDED!!  🥳 🤗🤗");
     return jsonResponse; // return the post data
   } else {
-    return "Creating post failed"; // Error message returned if the API call failed
+    throw Error("Creating post failed"); // // Error message returned if the API call failed
   }
 }
 
